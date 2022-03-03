@@ -1,0 +1,3 @@
+employee.bin
+1 bogdan 3 9
+2 vanya 17 51
