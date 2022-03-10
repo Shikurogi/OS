@@ -48,6 +48,12 @@ int main() {
 			std::cout << arr[i].num << " " << arr[i].name << " " << arr[i].hours << std::endl;
 		}
 	}
+	else
+	{
+		std::cout << "The process is not created!\nPress any key to continue.\n";
+		system("pause");
+		return GetLastError();
+	}
 
 	std::string fileName2;
 	std::cout << "Output file:" << std::endl;
@@ -81,6 +87,13 @@ int main() {
 			std::cout << temp.num << " " << temp.name << " " << temp.hours << " " << salary << std::endl;
 		}
 	}
+	else
+	{
+		std::cout << "The process is not created!\nPress any key to continue.\n";
+		system("pause");
+		return GetLastError();
+	}
+
 
 	CloseHandle(pi.hThread);
 	CloseHandle(pi.hProcess);
