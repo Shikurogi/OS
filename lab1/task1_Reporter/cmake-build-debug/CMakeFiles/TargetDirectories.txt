@@ -1,3 +1,0 @@
-D:/Program Files/CLion/OS/task1_Reporter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Program Files/CLion/OS/task1_Reporter/cmake-build-debug/CMakeFiles/task1_Reporter.dir
-D:/Program Files/CLion/OS/task1_Reporter/cmake-build-debug/CMakeFiles/edit_cache.dir
