@@ -4,30 +4,31 @@
 typedef struct{
 	int* a;
 	int n;
+	int min;
+	int max;
+	int mid;
 } params;
-
-volatile int min = INT_MAX;
-volatile int max = INT_MIN;
-volatile int mid = 0;
 
 DWORD WINAPI min_max(void* pr)
 {
 	params* arr = (params*)pr;
+	arr->min = INT_MAX;
+	arr->max = INT_MIN;
 	for (int i = 0; i < arr->n; ++i)
 	{
-		if (max < arr->a[i])
+		if (arr->max < arr->a[i])
 		{
-			max = arr->a[i];
+			arr->max = arr->a[i];
 		}
 		Sleep(7);
-		if (min > arr->a[i])
+		if (arr->min > arr->a[i])
 		{
-			min = arr->a[i];
+			arr->min = arr->a[i];
 		}
 		Sleep(7);
 	}
 
-	std::cout << "Maximal array element: " << max << std::endl << "Minimal array element: " << min << std::endl;
+	std::cout << "Maximal array element: " << arr->max << std::endl << "Minimal array element: " << arr->min << std::endl;
 
 	ExitThread(0);
 }
@@ -35,13 +36,14 @@ DWORD WINAPI min_max(void* pr)
 DWORD WINAPI average(void* pr)
 {
 	params* arr = (params*)pr;
+	arr->mid = 0;
 	for (int i = 0; i < arr->n; ++i)
 	{
-		mid += arr->a[i];
+		arr->mid += arr->a[i];
 		Sleep(12);
 	}
-	mid /= arr->n;
-	std::cout << "Arithmetic mean of the array: " << mid << std::endl;
+	arr->mid /= arr->n;
+	std::cout << "Arithmetic mean of the array: " << arr->mid << std::endl;
 
 	ExitThread(0);
 }
@@ -84,13 +86,13 @@ int main()
 
 	for (int i = 0; i < n; ++i)
 	{
-		if (a[i] == max)
+		if (a[i] == arr.max)
 		{
-			a[i] = mid;
+			a[i] = arr.mid;
 		}
-		if (a[i] == min)
+		if (a[i] == arr.min)
 		{
-			a[i] = mid;
+			a[i] = arr.mid;
 		}
 		std::cout << a[i] << " ";
 	}
