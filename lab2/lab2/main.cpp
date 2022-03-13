@@ -84,6 +84,7 @@ int main()
 	}
 	WaitForSingleObject(hThread2, INFINITE);
 
+	std::cout << "New array: ";
 	for (int i = 0; i < n; ++i)
 	{
 		if (a[i] == arr.max)
